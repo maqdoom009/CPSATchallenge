@@ -2,12 +2,9 @@ package test1;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,9 +24,7 @@ public class Number6 {
 		System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get(" https://www.woodlandworldwide.com/");
-		
-		
+		driver.get(" https://www.woodlandworldwide.com/");	
 	}
 	@Test
 	public void testdata() throws IOException, InterruptedException {
@@ -45,12 +40,9 @@ public class Number6 {
 		driver.findElement(By.xpath("//div[@class='searchDiv zoomIn animated']")).sendKeys(sh.getRow(i).getCell(0).getStringCellValue());
 		driver.findElement(By.xpath("//input[@id='searchBtn']")).click();
 		driver.findElement(By.xpath("//label[@class='spirit-bg radio1']")).click();
-
-		
 		//		System.out.println(rowcount);
 	}
 	}
-	
 	@AfterTest
 	public void Logout(){
 		driver.quit();
