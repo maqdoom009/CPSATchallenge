@@ -24,10 +24,10 @@ public static void Launch(){
 	
 	@Test(priority = 1)
 	public void operations1(){
-		WebElement Image = driver.findElement(By.xpath("//img[@class='img-responsive']"));
+	WebElement Image = driver.findElement(By.xpath("//img[@class='img-responsive']"));
 	int imagewidth = Image.getSize().getWidth();
 	System.out.println("Image width is "+imagewidth+" pixels");
-	
+
 	int imagehight = Image.getSize().getHeight();
 	System.out.println("Image hight is "+imagehight+ " pixels");
 	}
