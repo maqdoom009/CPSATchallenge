@@ -1,5 +1,7 @@
 package extent_Report;
 
+import java.io.IOException;
+
 import org.apache.bcel.verifier.exc.Utility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,8 +14,6 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-
-
 
 public class ExtentReportDemo2 
 {
@@ -36,7 +36,7 @@ public class ExtentReportDemo2
 	@Test
 	public void loginTest()
 	{
-		System.setProperty("webdriver.chrome.driver", "");
+		System.setProperty("webdriver.chrome.driver", "D:\\Drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("http://google.com/");
 		System.out.println("title is : "+driver.getTitle());
@@ -44,11 +44,11 @@ public class ExtentReportDemo2
 	}
 	
 	@AfterTest
-	public void tearDown(ITestResult result)
+	public void tearDown(ITestResult result) throws IOException
 	{
 		if (result.getStatus()==ITestResult.FAILURE) {
-		String temp = Utility.getScreenshot(driver);
-		logger.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(temp).build();
+		String temp = extent_Report.Utility.getScreenshot(driver);
+		logger.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
 		}
 		extent.flush();
 		driver.quit();
